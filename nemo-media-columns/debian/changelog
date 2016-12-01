@@ -1,3 +1,11 @@
+nemo-media-columns (3.2.0~utopia1) unstable; urgency=medium
+
+  * Utopia Repository build.
+  * Replace libnemo-extension1a dependency with libnemo-extension1;
+    the former doesn't exist in Debian/Ubuntu.
+
+ -- James Lu <bitflip3@gmail.com>  Wed, 30 Nov 2016 22:38:26 -0800
+
 nemo-media-columns (3.2.0) serena; urgency=medium
 
   * 3.2.0

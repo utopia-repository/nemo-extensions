@@ -23,7 +23,7 @@ Depends: nemo,
          ${shlibs:Depends},
          ${python:Depends},
          ${misc:Depends},
-         dropbox
+         nautilus-dropbox
 Suggests: python-gpgme (>= 0.1)
 Description: Dropbox integration for Nemo
  Nemo Dropbox is an extension that integrates the Dropbox web service with

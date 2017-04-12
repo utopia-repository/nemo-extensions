@@ -23,7 +23,7 @@ Depends: nemo,
          ${shlibs:Depends},
          ${python:Depends},
          ${misc:Depends},
-         dropbox
+         nautilus-dropbox
 Recommends: libappindicator1,
  python-gpgme
 Description: Dropbox integration for Nemo

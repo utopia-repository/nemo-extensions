@@ -8,7 +8,7 @@ override_dh_autoreconf:
 
 override_dh_makeshlibs:
 	# Don't generate a shlibs file for the plugin
-	dh_makeshlibs -X/usr/lib/nemo/
+	dh_makeshlibs -X/usr/lib/$(DEB_HOST_MULTIARCH)/nemo/
 
 override_dh_auto_install:
 	dh_auto_install

@@ -7,7 +7,7 @@ nemo-dropbox (3.2.0+utopia2) experimental; urgency=medium
     - "Add recommends on libappindicator1"
       from https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=207aa03a20b64b6f37b22931822ebbaaf3a76220
     - "Disable global installation of dropbox"
-      from From https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=dcb4926742e332e5ad5973323459c82fe6fa2b2c
+      from https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=dcb4926742e332e5ad5973323459c82fe6fa2b2c
   * Backport commit "Avoid reading or writing invalid memory addresses"
     from https://github.com/dropbox/nautilus-dropbox/commit/122b941c071b5d9c980580dca508ec914416edff
   * debian/ folder updates:
@@ -17,6 +17,7 @@ nemo-dropbox (3.2.0+utopia2) experimental; urgency=medium
     - Explicitly set source format to 3.0 (native).
     - Bump standards version to 3.9.8.
     - Set myself as maintainer.
+  * Remove unused .pc and debian/patches folders.
 
  -- James Lu <bitflip3@gmail.com>  Tue, 11 Apr 2017 17:23:25 -0700
 

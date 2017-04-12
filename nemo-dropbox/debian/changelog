@@ -1,3 +1,23 @@
+nemo-dropbox (3.2.0+utopia2) experimental; urgency=medium
+
+  * Depend on nautilus-dropbox instead of dropbox, which is available in Debian non-free.
+  * Imported patches from the Debian source tree:
+    - "Move Depends: on gpgme to a Recommends"
+      from https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=752fde316a2ff8393b438c7b40260135eebdb190
+    - "Add recommends on libappindicator1"
+      from https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=207aa03a20b64b6f37b22931822ebbaaf3a76220
+  * Backport commit "Avoid reading or writing invalid memory addresses"
+    from https://github.com/dropbox/nautilus-dropbox/commit/122b941c071b5d9c980580dca508ec914416edff
+  * debian/ folder updates:
+    - Adapt debian/rules to nemo multi-arch (based off
+      https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=8fdd287454e31edaada4e2e2e7299d055a2d63fa)
+    - Bump debian/compat to 9.
+    - Explicitly set source format to 3.0 (native).
+    - Bump standards version to 3.9.8.
+    - Set myself as maintainer.
+
+ -- James Lu <bitflip3@gmail.com>  Tue, 11 Apr 2017 17:23:25 -0700
+
 nemo-dropbox (3.2.0) serena; urgency=medium
 
   * 3.2.0

@@ -1,7 +1,7 @@
 Source: nemo-dropbox
 Section: non-free/gnome
 Priority: optional
-Maintainer: Clement Lefebvre <root@linuxmint.com>
+Maintainer: James Lu <bitflip3@gmail.com>
 Build-Depends: debhelper (>= 9),
                libnemo-extension-dev (>= 1.0.0),
                libglib2.0-dev (>= 2.14.0),

@@ -36,7 +36,7 @@ import kaa.metadata
 import Image
 # for reading pdf
 try:
-	from pyPdf import PdfFileReader
+	from pyPdf2 import PdfFileReader
 except:
 	pass
 

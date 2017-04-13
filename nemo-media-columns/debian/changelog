@@ -1,3 +1,12 @@
+nemo-media-columns (3.2.1+utopia1) unstable; urgency=medium
+
+  * Switch to python-pypdf2, as python-pypdf has been removed from stretch
+    and later.
+  * Demote python-pypdf to recommends as the plugin is still functional
+    without it.
+
+ -- James Lu <bitflip3@gmail.com>  Wed, 12 Apr 2017 17:49:24 -0700
+
 nemo-media-columns (3.2.1) serena; urgency=medium
 
   * 3.2.1

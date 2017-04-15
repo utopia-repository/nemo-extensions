@@ -23,6 +23,7 @@ Depends: ${python3:Depends},
          python3-pil,
          poppler-utils,
          gir1.2-glib-2.0
+Recommends: python3-exif
 Replaces: nemo-media-columns
 Description: Nemo extension, adding columns for media metadata.
  This extension advances Nemo columns: A great set of media metadata

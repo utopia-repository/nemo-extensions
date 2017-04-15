@@ -36,11 +36,10 @@ import MediaInfoDLL3
 READ_IMAGE = True
 if READ_IMAGE:
     try:
-        sys.path.append("/usr/share/nemo-metadata-columns")
         import exifread
     except ImportError:
         READ_IMAGE = False
-        print("nemo-metadata-colu: exifread not found. Image support disabled")
+        print("nemo-metadata-columns: exifread not found. Image support disabled")
 
 
 # react on default SIGINT

@@ -72,47 +72,47 @@ NAME_DESC = "Nemo Metadata Column:::" + _("Show media metadata in columns")
 
 # tags to be shown in columns and their translations
 TAGS_AUDIO_VIDEO = {
-    "GENERAL DURATION": _("Length"),
+    "GENERAL DURATION": _("Media Length"),
     "GENERAL OVERALL BIT RATE": _("Overall Bitrate"),
     "GENERAL ALBUM": _("Album"),
-    "GENERAL TRACK NAME": _("Title"),
-    "GENERAL TRACK NAME/POSITION": _("Track#"),
+    "GENERAL TRACK NAME": _("Track Title"),
+    "GENERAL TRACK NAME/POSITION": _("Track #"),
     "GENERAL PERFORMER": _("Artist"),
     "GENERAL GENRE": _("Genre"),
-    "GENERAL RECORDED DATE": _("Date"),
+    "GENERAL RECORDED DATE": _("Media Date"),
     "VIDEO FORMAT": _("Video Format"),
     "VIDEO CODEC ID/HINT": _("Video Codec"),
     "VIDEO BIT RATE": _("Video Bitrate"),
-    "VIDEO WIDTH": _("Width"),
-    "VIDEO HEIGHT": _("Height"),
-    "VIDEO DISPLAY ASPECT RATIO": _("Aspect"),
-    "VIDEO FRAME RATE": _("Framerate"),
+    "VIDEO WIDTH": _("Video Width"),
+    "VIDEO HEIGHT": _("Video Height"),
+    "VIDEO DISPLAY ASPECT RATIO": _("Video Aspect Ratio"),
+    "VIDEO FRAME RATE": _("Video Frame Rate"),
     "AUDIO FORMAT": _("Audio Format"),
     "AUDIO BIT RATE": _("Audio Bitrate"),
-    "AUDIO CHANNEL(S)": _("Channels"),
-    "AUDIO SAMPLING RATE": _("Sample Rate"),
-    "AUDIO REPLAY GAIN": _("Replay Gain"),
-    "AUDIO LANGUAGE": _("Language"),
+    "AUDIO CHANNEL(S)": _("Audio Channels"),
+    "AUDIO SAMPLING RATE": _("Audio Sample Rate"),
+    "AUDIO REPLAY GAIN": _("Audio Replay Gain"),
+    "AUDIO LANGUAGE": _("Audio Language"),
 }
 TAGS_IMAGE = {
     "Image Make": _("Camera Brand"),
     "Image Model": _("Camera Model"),
-    "EXIF FocalLength": _("Focal Length"),
-    "EXIF ExposureTime": _("Exposure Time (sec.)"),
-    "EXIF FNumber": _("Aperture Value"),
-    "EXIF ISOSpeedRatings": _("ISO Speed Rating"),
-    "EXIF MeteringMode": _("Metering Mode"),
-    "EXIF WhiteBalance": _("White Balance"),
-    "EXIF Flash": _("Flash"),
-    "EXIF ExposureProgram": _("Exposure Program"),
-    "EXIF ExposureMode": _("Exposure Mode"),
-    "Image Software": _("Software"),
-    "EXIF ColorSpace": _("Color Space"),
-    "EXIF Contrast": _("Contrast"),
-    "EXIF Saturation": _("Saturation"),
-    "EXIF Sharpness": _("Sharpness"),
-    "Image Orientation": _("Orientation"),
-    "Resolution": _("Resolution")
+    "EXIF FocalLength": _("EXIF Focal Length"),
+    "EXIF ExposureTime": _("EXIF Exposure Time (sec.)"),
+    "EXIF FNumber": _("EXIF Aperture Value"),
+    "EXIF ISOSpeedRatings": _("EXIF ISO Speed Rating"),
+    "EXIF MeteringMode": _("EXIF Metering Mode"),
+    "EXIF WhiteBalance": _("EXIF White Balance"),
+    "EXIF Flash": _("EXIF Flash"),
+    "EXIF ExposureProgram": _("EXIF Exposure Program"),
+    "EXIF ExposureMode": _("EXIF Exposure Mode"),
+    "Image Software": _("EXIF Software"),
+    "EXIF ColorSpace": _("EXIF Color Space"),
+    "EXIF Contrast": _("EXIF Contrast"),
+    "EXIF Saturation": _("EXIF Saturation"),
+    "EXIF Sharpness": _("EXIF Sharpness"),
+    "Image Orientation": _("Image Orientation"),
+    "Resolution": _("Image Resolution")
 }
 # hidden tags are read internally but not displayed on their own
 TAGS_IMAGE_HIDDEN = {
@@ -127,12 +127,12 @@ TAGS_IMAGE_HIDDEN = {
     "EXIF FocalLengthIn35mmFilm"
 }
 TAGS_IMAGE_STUB = {
-    "Description": _("Description"),
-    "Copyright": _("Copyright"),
-    "Disclaimer": _("Disclaimer"),
-    "Warning": _("Warning"),
-    "Source": _("Source"),
-    "Comment": _("Comment")
+    "Description": _("Image Description"),
+    "Copyright": _("Image Copyright"),
+    "Disclaimer": _("Image Disclaimer"),
+    "Warning": _("Image Warning"),
+    "Source": _("Image Source"),
+    "Comment": _("Image Comment")
 }
 TAGS_IMAGE_STUB_HIDDEN = {
     "Title",
@@ -141,11 +141,11 @@ TAGS_IMAGE_STUB_HIDDEN = {
     "Software"
 }
 TAGS_PDF = {
-    "SUBJECT": _("Subject"),
-    "KEYWORDS": _("Keywords"),
-    "AUTHOR": _("Author"),
-    "MODDATE": _("Modified"),
-    "PAGES": _("Pages")
+    "SUBJECT": _("Document Subject"),
+    "KEYWORDS": _("Document Keywords"),
+    "AUTHOR": _("Document Author"),
+    "MODDATE": _("Document Modified Date"),
+    "PAGES": _("Document Page Count")
 }
 TAGS_PDF_HIDDEN = {
     "TITLE"

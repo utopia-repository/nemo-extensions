@@ -31,8 +31,8 @@ from PIL import Image
 # I know it is in bad shape, to put it mildly. But it is the only library I
 # could find to access video metadata in Python 3. Ideas are welcome!
 import MediaInfoDLL3
-# exifread is an external library that should come with this script
-# installed in the following directory. Keep it optional, though.
+from PyPDF2 import PdfFileReader
+
 READ_IMAGE = True
 if READ_IMAGE:
     try:
@@ -75,7 +75,8 @@ TAGS_AUDIO_VIDEO = {
     "GENERAL DURATION": _("Media Length"),
     "GENERAL OVERALL BIT RATE": _("Overall Bitrate"),
     "GENERAL ALBUM": _("Album"),
-    "GENERAL TRACK NAME": _("Track Title"),
+    # This is actually used for images, pdfs, and multimedia.
+    "GENERAL TRACK NAME": _("File Title"),
     "GENERAL TRACK NAME/POSITION": _("Track #"),
     "GENERAL PERFORMER": _("Artist"),
     "GENERAL GENRE": _("Genre"),
@@ -145,6 +146,7 @@ TAGS_PDF = {
     "KEYWORDS": _("Document Keywords"),
     "AUTHOR": _("Document Author"),
     "MODDATE": _("Document Modified Date"),
+    "CREATIONDATE": _("Document Creation Date"),
     "PAGES": _("Document Page Count")
 }
 TAGS_PDF_HIDDEN = {
@@ -493,50 +495,36 @@ def read_image_stub(filename):
 def read_pdf_data(filename):
     """Read and return PDF metadata defined in TAGS_PDF.
 
-    (This method makes use of a subprocess call to the binary
-    "pdfinfo" by poppler and processes its output. E.g. words and
-    dates are translated.)
+    (This method uses the PyPDF2 library, which supports both Python 2 and 3.)
     """
-    try:
-        pdfinfo = subprocess.check_output(["pdfinfo", filename],
-                                          stderr=subprocess.DEVNULL)
-        pdfinfo = pdfinfo.decode()
-    except (subprocess.CalledProcessError, UnicodeError):
-        return
+    f = open(filename, 'rb')  # Note: file needs to kept open as PyPDF2 processes it
+    pdf = PdfFileReader(f)
 
-    tagdata = dict()
-    for line in pdfinfo.split("\n"):
-        tagname, _, tagvalue = line.partition(":")
-        tagname = tagname.upper()
-        tagvalue = tagvalue.strip()
-        if not tagvalue:
-            continue
+    tagdata = {}
+    pdfinfo = pdf.getDocumentInfo()
+    tagdata['SUBJECT'] = pdfinfo.get('/Subject', '')
+    tagdata['KEYWORDS'] = pdfinfo.get('/Keywords', '')
+    tagdata['AUTHOR'] = pdfinfo.get('/Author', '')
+    # Ugh... we deperately need some field cleanup
+    tagdata['GENERAL TRACK NAME'] = pdfinfo.get('/Title', '')
+    tagdata['PAGES'] = str(pdf.getNumPages())
 
-        if ((tagname in TAGS_PDF or
-             tagname in TAGS_PDF_HIDDEN)):
-            # store "title" tag in Audio's title tag in order to reduce columns
-            if tagname == "TITLE":
-                tagname = "GENERAL TRACK NAME"
+    tagdata['CREATIONDATE'] = pdfinfo.get('/CreationDate', '')
+    tagdata['MODDATE'] = pdfinfo.get('/ModDate', '')
+    for date in ('CREATIONDATE', 'MODDATE'):
+        if tagdata[date]:
+            # pypdf2 gives dates in a fairly strange format: e.g.
+            # u'D:20161221233415' or u"D:20161105051445+00'00'"
+            print('Got raw date %s' % tagdata[date])
+            # XXX: Python can't parse time zones via %z in strptime, so
+            # let's ignore it for now
+            stripped_date = tagdata[date].split('+')[0].split('-')[0]
+            time_struct = time.strptime(stripped_date, u'D:%Y%m%d%H%M%S')
+            # XXX: respect Nemo's time format setting
+            tagdata[date] = time.strftime('%Y-%m-%d %H:%M:%S', time_struct)
 
-            if tagname.endswith("DATE"):
-                tagvalue = translate_poppler_date(tagvalue)
-
-            tagdata[tagname] = tagvalue
-
+    print(tagdata)
     return tagdata
-
-
-def translate_poppler_date(english_date):
-    """Translate "english date" into locale date representation.
-
-    ("english date" means the date format used by Poppler's pdfinfo.)
-    """
-    locale.setlocale(locale.LC_TIME, ("en", "utf-8"))
-    time_object = time.strptime(english_date, "%a %b %d %H:%M:%S %Y")
-    init_locale()
-    locale_time = time.strftime("%c", time_object)
-    return locale_time
-
 
 def translate_exif_words(tagname, tagvalue):
     """Translate common EXIF words into user's locale.

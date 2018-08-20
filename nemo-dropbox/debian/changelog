@@ -1,3 +1,19 @@
+nemo-dropbox (3.8.0+utopia1) unstable; urgency=medium
+
+  * Utopia repository upload.
+  * Depend on nautilus-dropbox instead of dropbox, which is available in Debian non-free.
+  * Imported commits from the Debian packaging for nautilus-dropbox:
+    - "Disable global installation of dropbox"
+      from https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=dcb4926742e332e5ad5973323459c82fe6fa2b2c
+  * Backport commit "Avoid reading or writing invalid memory addresses"
+    from https://github.com/dropbox/nautilus-dropbox/commit/122b941c071b5d9c980580dca508ec914416edff
+  * debian/ folder updates:
+    - Adapt debian/rules to nemo multi-arch (based off
+      https://anonscm.debian.org/git/collab-maint/nautilus-dropbox.git/commit/?id=8fdd287454e31edaada4e2e2e7299d055a2d63fa)
+    - Bump to debhelper 10
+
+ -- James Lu <james@overdrivenetworks.com>  Sun, 19 Aug 2018 18:05:44 -0700
+
 nemo-dropbox (3.8.0) tara; urgency=medium
 
   * 3.8.0
